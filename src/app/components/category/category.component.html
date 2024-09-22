@@ -1,0 +1,14 @@
+<!-- &----------getAllCategory----------- -->
+<section class="mt-14">
+  <div @translateY *ngIf="getCategory.length!=0" class="grid-cols-12 grid gap-4 cursor-pointer">
+    <div *ngFor="let category of getCategory"
+      class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3  product border-2 border-green-600 rounded-md">
+      <div [routerLink]="['/productCategory' ,category._id ]">
+        <img class="w-full h-80" [src]="category.image" [alt]="category.image.name">
+        <h2 class="font-semibold text-xl text-green-600 py-2 text-center">{{category.name}}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="getCategory.length==0" class="nb-spinner"></div>

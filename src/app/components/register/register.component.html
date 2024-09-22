@@ -1,0 +1,53 @@
+<!-- &-------------RegisterForm--------------- -->
+<section @translateY class="mt-16 mb-5">
+  <div class="w-3/4 mx-auto bg-[#f0f3f2] dark:bg-black p-8 rounded-md">
+    <h2 class="text-2xl pb-1 font-semibold text-gray-700 dark:text-green-600">Register Now :</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="handelForm()">
+      <div class="my-2">
+        <input type="text" placeholder="Enter Your name" formControlName="name"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="registerForm.get('name')?.getError('required')">name is required</p>
+            <p *ngIf="registerForm.get('name')?.getError('maxlength')">name is maxLength</p>
+            <p *ngIf="registerForm.get('name')?.getError('minlength')">name is minLength</p>
+          </div>
+      </div>
+      <div class=" my-2">
+        <input type="email" placeholder="Enter Your Email" formControlName="email"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="registerForm.get('email')?.getError('required')">email is required</p>
+            <p *ngIf="registerForm.get('email')?.getError('email')">email is invalid</p>
+          </div>
+      </div>
+      <div class=" my-2">
+        <input type="password" placeholder="Enter Your password" formControlName="password"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="registerForm.get('password')?.getError('required')">password is required</p>
+            <p *ngIf="registerForm.get('password')?.getError('pattern')">password is pattern</p>
+          </div>
+      </div>
+      <div class=" my-2">
+        <input type="password" placeholder="Enter Your rePassword" formControlName="rePassword"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="registerForm.get('rePassword')?.getError('required')">rePassword is required</p>
+            <p *ngIf="registerForm.get('rePassword')?.getError('mismatch')">rePassword is invalid</p>
+          </div>
+      </div>
+      <div class=" my-2">
+        <input type="tel" placeholder="Enter Your Phone" formControlName="phone"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="registerForm.get('phone')?.getError('required')">phone is required</p>
+            <p *ngIf="registerForm.get('phone')?.getError('pattern')">phone is invalid</p>
+          </div>
+      </div>
+      <div *ngIf="isMessage" class="bg-red-200 p-2 rounded-md text-center w-3/4 mx-auto">
+        <p>{{isMessage}}</p>
+      </div>
+      <button [disabled]="registerForm.invalid" class="main-btn my-2" type="submit">Register <i class="fa fa-spin fa-spinner" *ngIf="isLoading"></i></button>
+    </form>
+  </div>
+</section>

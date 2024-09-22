@@ -1,0 +1,67 @@
+<nav class="flex justify-between z-20 px-4 bg-white dark:bg-black shadow-md py-2 fixed top-0 left-0 right-0 w-full">
+  <!--&----------------Logo-------------------->
+  <div class="flex items-center">
+    <img class="pe-6 flex dark:hidden" src="./assets/images/freshcart-logo.svg" alt="logo" />
+    <h2 class="hidden dark:flex pe-16 items-center font-bold text-gray-300 text-[25px] gap-1"><img class="w-8" src="./assets/images/favicon.ico" alt="logo" /> FreshCart</h2>
+  </div>
+
+  <!--&----------------NavLinks-------------------->
+  <div class="flex items-center gap-4">
+    <!-- ?------------Icon---------- -->
+    <div class="hidden md:flex items-center gap-4">
+      <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+        href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+      <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+        href="https://web.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+      <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+        href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
+      <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+        href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+      <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+        href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+
+    <!-- ?------------NavMenu---------- -->
+    <ul #navMenu
+      class="max-md:absolute md:top-0 top-10 py-3 md:py-0 text-center right-full transition-all duration-300 md:duration-0 w-full bg-white dark:bg-black lg:dark:bg-transparent lg:bg-transparent shadow-md md:shadow-none md:flex items-center gap-2 space-y-4 md:space-y-0">
+      <li
+        class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300">
+        <a routerLink="/login" routerLinkActive="active1">Login</a>
+      </li>
+      <li
+        class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300">
+        <a routerLink="/register" routerLinkActive="active1">Register</a>
+      </li>
+      <div class="flex md:hidden items-center justify-center gap-4">
+        <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+          href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+          href="https://web.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+          href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
+        <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+          href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+        <a class="text-gray-500 dark:text-gray-400  font-semibold hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 text-xl"
+          href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </ul>
+
+    <!--&----------------Open & Close Menu-------------------->
+    <div class="flex items-center dark:text-gray-400 dark:hover:text-gray-100">
+      <div #openMenu1 (click)="openMenu()" class="md:hidden flex items-center">
+        <i class="fa-solid fa-bars text-2xl cursor-pointer"></i>
+      </div>
+      <div #exitMenu1 (click)="exitMenu()" class="md:hidden hidden">
+        <i class="fa-solid fa-x text-2xl cursor-pointer flex items-center"></i>
+      </div>
+    </div>
+
+    <!--&----------------darkMode-------------------->
+    <div class="flex items-center mb-1 lg:mb-0 gap-3  text-2xl ">
+      <button class="flex dark:hidden" #btnDark (click)="darkMode()"><i
+        class="fa-solid fa-moon "></i></button>
+    <button class="hidden dark:flex dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-300" #btnSun (click)="lightMode()"><i
+        class="fa-regular fa-sun"></i></button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,28 @@
+<!-- &-------------getAllWishlist----------- -->
+<section class="mt-14">
+  <div @translateY *ngIf="displayWishlist.length!=0" class="grid-cols-12 grid gap-4 cursor-pointer">
+    <div *ngFor="let prod of displayWishlist"
+      class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2 product border-2 border-green-600 rounded-md">
+      <i *ngIf="!wishlistId.includes(prod._id)" (click)="addWishlist(prod._id)" class="fa-regular fa-heart hart"></i>
+      <i *ngIf="wishlistId.includes(prod._id)" (click)="removeWishlist(prod._id)" class="fa-solid fa-heart hart text-red-500"></i>
+      <div [routerLink]="['/details', prod._id]">
+        <div class="imgScale">
+          <img class="w-full" [src]="prod.imageCover" alt="imgProduct">
+        </div>
+        <div class="px-3">
+          <h5 class="font-light text-lg dark:text-gray-200">{{prod.category.name}}</h5>
+          <h3 class="font-normal text-xl text-main">{{prod.brand.name}}</h3>
+          <div class="flex justify-between mt-2">
+            <p class="dark:text-gray-200">{{prod.price}} EGP</p>
+            <p class="dark:text-gray-200"><i class="fa-solid fa-star rating-color"></i> {{prod.ratingsAverage}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="px-3 pb-3">
+        <button #btn (click)="addCart(prod._id ,btn)" class="main-btn w-full mt-2 add-btn">+add To Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="displayWishlist.length==0" class="nb-spinner"></div>

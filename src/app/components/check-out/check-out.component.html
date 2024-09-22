@@ -1,0 +1,36 @@
+<!-- &--------------CheckOutCart------------- -->
+<section @translateY class="mt-16 mb-5">
+  <div class="w-3/4 mx-auto bg-main-light p-8 rounded-md">
+    <form [formGroup]="checkOutForm" (ngSubmit)="handelForm()">
+      <div class="my-2">
+        <input type="text" placeholder="Enter Your details" formControlName="details"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="checkOutForm.get('details')?.errors && checkOutForm.get('details')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="checkOutForm.get('details')?.getError('required')">details is required</p>
+            <p *ngIf="checkOutForm.get('details')?.getError('pattern')">details is invalid</p>
+          </div>
+      </div>
+      <div class=" my-2">
+        <input type="tel" placeholder="Enter Your phone" formControlName="phone"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="checkOutForm.get('phone')?.errors && checkOutForm.get('phone')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="checkOutForm.get('phone')?.getError('required')">phone is required</p>
+            <p *ngIf="checkOutForm.get('phone')?.getError('pattern')">phone is invalid</p>
+          </div>
+      </div>
+      <div class=" my-2">
+        <input type="text" placeholder="Enter Your city" formControlName="city"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+          <div *ngIf="checkOutForm.get('city')?.errors && checkOutForm.get('city')?.touched" class="bg-red-200 p-2 rounded-md">
+            <p *ngIf="checkOutForm.get('city')?.getError('required')">city is required</p>
+            <p *ngIf="checkOutForm.get('city')?.getError('pattern')">city is invalid</p>
+          </div>
+      </div>
+      <div *ngIf="isMessage" class="bg-red-200 p-2 rounded-md text-center w-3/4 mx-auto">
+        <p>{{isMessage}}</p>
+      </div>
+      <button [disabled]="checkOutForm.invalid" class="main-btn my-2" type="submit">CheckOut <i class="fa fa-spin fa-spinner" *ngIf="isLoading"></i></button>
+    </form>
+  </div>
+</section>
+

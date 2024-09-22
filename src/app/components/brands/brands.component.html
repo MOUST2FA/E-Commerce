@@ -1,0 +1,13 @@
+<!-- &---------------getAllBrands-------------- -->
+<section class="mt-14">
+  <div *ngIf="getBrands.length!=0" class="grid-cols-12 grid gap-4 cursor-pointer">
+    <div @translateY *ngFor="let brand of getBrands"
+      class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2 product border-2 border-green-600 rounded-md">
+      <div [routerLink]="['/productBrands' , brand._id]">
+        <img class="w-full" [src]="brand.image" [alt]="brand.image.name">
+        <h2 class="font-semibold text-xl text-green-600 py-2 text-center">{{brand.name}}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="getBrands.length==0" class="nb-spinner"></div>

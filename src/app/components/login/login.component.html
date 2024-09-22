@@ -1,0 +1,34 @@
+<!-- &-------------Login------------- -->
+<section @translateY class="mt-16 mb-5">
+  <div class="w-3/4 mx-auto bg-[#f0f3f2] dark:bg-black p-8 rounded-md">
+    <h2 class="text-2xl pb-1 font-semibold text-gray-700 dark:text-green-600">Login Now :</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="handelForm()">
+      <div class=" my-2">
+        <input type="email" placeholder="Enter Your Email" formControlName="email"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+        <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+          class="bg-red-200 p-2 rounded-md">
+          <p *ngIf="loginForm.get('email')?.getError('required')">email is required</p>
+          <p *ngIf="loginForm.get('email')?.getError('email')">email is invalid</p>
+        </div>
+      </div>
+      <div class=" my-2">
+        <input type="password" placeholder="Enter Your password" formControlName="password"
+          class="w-full outline-none border-2 p-2 rounded-md border-gray-400 focus:border-green-600">
+        <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
+          class="bg-red-200 p-2 rounded-md">
+          <p *ngIf="loginForm.get('password')?.getError('required')">password is required</p>
+          <p *ngIf="loginForm.get('password')?.getError('pattern')">password is pattern</p>
+        </div>
+      </div>
+      <div *ngIf="isMessage" class="bg-red-200 p-2 rounded-md text-center w-3/4 mx-auto">
+        <p>{{isMessage}}</p>
+      </div>
+      <div class="flex justify-between items-center">
+        <button [disabled]="loginForm.invalid" class="main-btn my-2" type="submit">Login <i
+            class="fa fa-spin fa-spinner" *ngIf="isLoading"></i></button>
+        <a routerLink="/forgetPass" class="underline text-blue-600">ForgetPassword</a>
+      </div>
+    </form>
+  </div>
+</section>

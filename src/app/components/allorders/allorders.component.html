@@ -1,0 +1,17 @@
+<!-- &--------------getAllOlder---------------- -->
+<section class="pt-16 mb-5">
+  <div *ngIf="userOrderId.length!=0" class="container mx-auto">
+    <div *ngFor="let item of userOrderId"
+      class="bg-main-light shadow-md p-3 md:flex md:justify-between px-10 border-gray-300 border-b-2">
+      <div>
+        <h5 class="my-3">Name : <span class="text-main">{{item.user.name}}</span></h5>
+        <h5>Phone : <span class="text-main ">{{item.user.phone}}</span></h5>
+      </div>
+      <div>
+        <h5 class="my-3">Total Praise : <span class="text-main">{{item.totalOrderPrice}} EGP</span></h5>
+        <h5>payment Method : <span class="text-main ">{{item.paymentMethodType}}</span></h5>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="userOrderId.length==0" class="nb-spinner"></div>

@@ -1,0 +1,24 @@
+<!-- &---------------get All Details--------------- -->
+<section @translateY class="mt-16">
+<div class="grid-cols-12 grid items-center sm:gap-16">
+  <div class="col-span-12 sm:col-span-4 lg:col-span-3">
+    <owl-carousel-o [options]="customOptionsDetails">
+      <ng-container *ngFor="let detail of displayDetails.images">
+        <ng-template carouselSlide>
+          <img class="w-full" [src]="detail" [alt]="detail.slug" [title]="detail.slug">
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+  <div class="col-span-12 sm:col-span-8 lg:col-span-9 px-4">
+    <h3 class="font-semibold text-xl dark:text-gray-200">{{displayDetails.title}}</h3>
+    <p class="font-light my-3 dark:text-gray-200">{{displayDetails.description}}</p>
+    <div class="flex justify-between mt-2">
+      <p class="dark:text-gray-200">{{displayDetails.price}} EGP</p>
+      <p class="dark:text-gray-200"><i class="fa-solid fa-star rating-color"></i> {{displayDetails.ratingsAverage}}</p>
+    </div>
+    <button #btn (click)="addCart(displayDetails._id ,btn)" class="main-btn w-full mt-2 add-btn">+add To Cart</button>
+
+  </div>
+</div>
+</section>

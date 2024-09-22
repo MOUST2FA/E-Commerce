@@ -1,0 +1,26 @@
+<!-- &----------------getProductCategory-------------- -->
+<section class="mt-16 mb-5">
+  <div *ngIf="displayProductCategory.length!=0" class="grid-cols-12 grid justify-center gap-4 cursor-pointer">
+    <div @translateY *ngFor="let prod of displayProductCategory"
+      class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2 product border-2 border-green-600 rounded-md">
+      <div [routerLink]="['/details', prod._id]">
+        <div class="imgScale">
+          <img class="w-full" [src]="prod.imageCover" [alt]="prod.title">
+        </div>
+        <div class="px-3">
+          <h4 class="font-light text-lg dark:text-gray-200">{{prod.category.name}}</h4>
+          <h6 class="font-normal text-lg text-main">{{prod.title.split(' ',2).join(' ')}}</h6>
+          <div class="flex justify-between mt-2">
+            <p class="dark:text-gray-200">{{prod.price}} EGP</p>
+            <p class="dark:text-gray-200"><i class="fa-solid fa-star rating-color"></i> {{prod.ratingsAverage}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="px-3 pb-3">
+        <button #btn (click)="addCart(prod._id ,btn)" class="main-btn w-full mt-2 add-btn">+add To Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="displayProductCategory.length==0" class="nb-spinner"></div>
